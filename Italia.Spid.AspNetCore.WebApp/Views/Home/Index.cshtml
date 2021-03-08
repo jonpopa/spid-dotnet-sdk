@@ -35,7 +35,7 @@
                     </li>
 
                     <li class="spid-idp-button-link">
-                        <a href='@Url.Action("SpidRequest", "Home",new { IdPName = "https://spidposte.test.poste.it" })'>
+                        <a href='@Url.Action("SpidRequest", "Home",new { IdPName = "https://posteid.poste.it" })'>
                             <img class="idp-button-idp-logo" title="Poste ID" alt="Poste ID" src='@Url.Content("~/images/spid-idp-posteid.png")' />
                         </a>
                     </li>
@@ -55,6 +55,12 @@
                     <li class="spid-idp-button-link">
                         <a href='@Url.Action("SpidRequest", "Home",new { IdPName = "https://identity.infocert.it" })'>
                             <img class="idp-button-idp-logo" title="Infocert ID" alt="Infocert ID" src='@Url.Content("~/images/spid-idp-infocertid.png")' />
+                        </a>
+                    </li>
+                    
+                    <li class="spid-idp-button-link">
+                        <a href='@Url.Action("SpidRequest", "Home",new { IdPName = "https://idptest.spid.gov.it" })'>
+                            <img class="idp-button-idp-logo" title="IdPTest" alt="SPID Test" src='@Url.Content("~/images/SPIDTestIdPLogo.png")' />
                         </a>
                     </li>
 

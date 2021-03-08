@@ -250,7 +250,7 @@ namespace Italia.Spid.Authentication.Saml
                     // Extract AuthnStatement metadata
                     XElement authnStatementElement = assertionElement.Elements("{urn:oasis:names:tc:SAML:2.0:assertion}AuthnStatement").Single();
                     authnStatementAuthnInstant = DateTimeOffset.Parse(authnStatementElement.Attribute("AuthnInstant").Value);
-                    authnStatementSessionIndex = authnStatementElement.Attribute("SessionIndex").Value;
+                    authnStatementSessionIndex = authnStatementElement.Attribute("SessionIndex")?.Value;
 
                     // Extract SPID user info
                     foreach (XElement attribute in xdoc.Descendants("{urn:oasis:names:tc:SAML:2.0:assertion}AttributeStatement").Elements())

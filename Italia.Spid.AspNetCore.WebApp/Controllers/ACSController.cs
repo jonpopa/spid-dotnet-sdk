@@ -36,12 +36,12 @@ namespace Italia.Spid.AspNet.WebApp.Controllers
             string idPName = this.GetCookie("IdPName");
             string spidAuthnRequestId = this.GetCookie("SpidAuthnRequestId");
 
-            if (string.IsNullOrWhiteSpace(idPName) || string.IsNullOrWhiteSpace(spidAuthnRequestId))
-            {
-                // TODO: log.Error("Error on ACSController [HttpPost]Index method: Impossibile recuperare l'Id della sessione.");
-                ViewData["Message"] = "Impossibile recuperare i dati della sessione (cookie scaduto).";
-                return View("Error");
-            }
+            //if (string.IsNullOrWhiteSpace(idPName) || string.IsNullOrWhiteSpace(spidAuthnRequestId))
+            //{
+            //    // TODO: log.Error("Error on ACSController [HttpPost]Index method: Impossibile recuperare l'Id della sessione.");
+            //    ViewData["Message"] = "Impossibile recuperare i dati della sessione (cookie scaduto).";
+            //    return View("Error");
+            //}
 
             try
             {
@@ -65,13 +65,13 @@ namespace Italia.Spid.AspNet.WebApp.Controllers
                 string requestUrl = $"http{(Request.IsHttps ? "s" : "")}://{Request.Host.ToString()}{Request.Path.ToString()}";
 
                 // Verifica la corrispondenza del valore di spidAuthnRequestId ricavato dalla sessione con quello restituito dalla risposta
-                if (!SamlHelper.ValidAuthnResponse(idpAuthnResponse, spidAuthnRequestId, requestUrl))
-                {
-                    // TODO: log.Error($"Error on ACSController [HttpPost]Index method: La risposta dell'IdP non è valida (InResponseTo != spidAuthnRequestId oppure SubjectConfirmationDataRecipient != requestPath).");
-                    ViewData["Message"] = "La risposta dell'IdP non è valida perché non corrisponde alla richiesta.";
-                    ViewData["ErrorMessage"] = $"RequestId: _{spidAuthnRequestId}, RequestPath: {requestUrl}, InResponseTo: {idpAuthnResponse.InResponseTo}, Recipient: {idpAuthnResponse.SubjectConfirmationDataRecipient}.";
-                    return View("Error");
-                }
+                //if (!SamlHelper.ValidAuthnResponse(idpAuthnResponse, spidAuthnRequestId, requestUrl))
+                //{
+                //    // TODO: log.Error($"Error on ACSController [HttpPost]Index method: La risposta dell'IdP non è valida (InResponseTo != spidAuthnRequestId oppure SubjectConfirmationDataRecipient != requestPath).");
+                //    ViewData["Message"] = "La risposta dell'IdP non è valida perché non corrisponde alla richiesta.";
+                //    ViewData["ErrorMessage"] = $"RequestId: _{spidAuthnRequestId}, RequestPath: {requestUrl}, InResponseTo: {idpAuthnResponse.InResponseTo}, Recipient: {idpAuthnResponse.SubjectConfirmationDataRecipient}.";
+                //    return View("Error");
+                //}
 
                 HttpContext.Session.SetObject<UserInfo>("UserInfo", new UserInfo
                 {

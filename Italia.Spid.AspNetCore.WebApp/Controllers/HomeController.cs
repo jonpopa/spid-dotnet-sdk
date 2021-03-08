@@ -27,6 +27,7 @@ namespace Italia.Spid.AspNetCore.WebApp.Controllers
         public ActionResult Index()
         {
             UserInfo userInfo = HttpContext.Session.GetObject<UserInfo>("UserInfo");
+
             if (userInfo != null)
             {
                 ViewBag.Name = userInfo.Name;
@@ -75,7 +76,10 @@ namespace Italia.Spid.AspNetCore.WebApp.Controllers
                     securityLevel: 1,
                     certificate: certificate,
                     identityProvider: idp,
-                    enviroment: _env.EnvironmentName == "Development" ? 1 : 0);
+                    // Review :AssertionConsumerServiceIndex assignment -> must match the one defined into the SP metadata comunicated to IdPs
+                    //enviroment: _env.EnvironmentName == "Development" ? 1 : 0
+                    enviroment: _env.EnvironmentName == "Development" ? 0 : 1
+                    );
 
                 ViewData["data"] = spidAuthnRequest;
                 ViewData["action"] = idp.SingleSignOnServiceUrl;

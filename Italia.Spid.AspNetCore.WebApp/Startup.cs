@@ -216,6 +216,17 @@ namespace Italia.Spid.AspNetCore.WebApp
                     SubjectNameIdRemoveText = string.Empty,
                     DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'",
                     NowDelta = 0
+                },
+                new IdentityProviderConfigData()
+                {
+                    EntityId = "https://idptest.spid.gov.it",
+                    OrganizationDisplayName = "SPID - Test Identity Provider",
+                    OrganizationUrl = "https://idptest.spid.gov.it/",
+                    SingleSignOnServiceUrl = "https://idptest.spid.gov.it/sso",
+                    SingleLogoutServiceUrl = "https://idptest.spid.gov.it/slo",
+                    SubjectNameIdRemoveText = string.Empty,
+                    DateTimeFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'",
+                    NowDelta = 0
                 }
             };
 
